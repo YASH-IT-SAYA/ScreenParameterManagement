@@ -12,28 +12,28 @@
         <ImageBrush ImageSource="/Images/LoginWindowBackgroundImage.jpg" Stretch="Fill"/>
     </Window.Background>
     <Grid>
-        <Border Width="280" Padding="20" CornerRadius="15"
+        <Border Padding="20" CornerRadius="15"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 BorderBrush="White" BorderThickness="2">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
-                <TextBlock Text="Choose The Window" FontSize="20" FontWeight="Bold"
+                <TextBlock Text="Choose The Window" FontSize="25" FontWeight="Bold"
                            HorizontalAlignment="Center" Margin="10" Foreground="White"/>
                 <Button x:Name="SelectMasterPage" Margin="10" Padding="10" Background="Transparent" BorderThickness="0" BorderBrush="White" Click="SelectMasterPage_Click" Foreground="White">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <fa:ImageAwesome Icon="ListAlt" Width="18" Height="18" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="Select Master Page" FontWeight="Bold" FontSize="15"/>
+                        <TextBlock Text="Select Master Page" FontWeight="Bold" FontSize="20"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="SelectParameterMasterPage" Margin="10" Padding="10" Background="Transparent" BorderThickness="0" BorderBrush="White" Click="SelectParameterMasterPage_Click">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <fa:ImageAwesome Icon="Slideshare" Width="18" Height="18" Foreground="White" Margin="0,0,10,0"/>
-                        <TextBlock Text="Parameter Master Page" FontSize="15" FontWeight="Bold" Foreground="White"/>
+                        <TextBlock Text="Parameter Master Page" FontSize="20" FontWeight="Bold" Foreground="White"/>
                     </StackPanel>
                 </Button>
                 <Button x:Name="LogoutButton" Margin="10" Padding="10" Background="Transparent" BorderThickness="0" BorderBrush="White" Click="LogoutButton_Click">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <fa:ImageAwesome Icon="SignOut" Width="18" Height="18" Margin="0,0,10,0" Foreground="White"/>
-                        <TextBlock Text="Logout" FontWeight="Bold" FontSize="15" Foreground="White"/>
+                        <TextBlock Text="Logout" FontWeight="Bold" FontSize="20" Foreground="White"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
