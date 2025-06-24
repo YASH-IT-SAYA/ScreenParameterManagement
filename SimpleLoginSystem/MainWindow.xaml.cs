@@ -9,8 +9,7 @@ namespace SimpleLoginSystem
 {
     public partial class MainWindow : Window
     {
-        private static readonly string connectionString = "Data Source=DESKTOP-QI77AJ8\\SQLEXPRESS;Initial Catalog=ArkaPRP83_UserAudit;User ID=sa;Password=Test#123";
-        //private string connectionString = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
         public MainWindow()
         {
             InitializeComponent();
