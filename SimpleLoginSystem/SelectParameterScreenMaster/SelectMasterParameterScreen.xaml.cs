@@ -4,12 +4,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Data.SqlClient;
 using ArkaPRP83.Core.Helper;
+using System.Configuration;
 
 namespace SimpleLoginSystem
 {
     public partial class SelectMasterParameterScreen : Window
     {
-        private static readonly string connectionString = "Data Source=DESKTOP-QI77AJ8\\SQLEXPRESS;Initial Catalog=ArkaPRP83_UserAudit;User ID=sa;Password=Test#123";
+        //private static readonly string connectionString = "Data Source=DESKTOP-QI77AJ8\\SQLEXPRESS;Initial Catalog=ArkaPRP83_UserAudit;User ID=sa;Password=Test#123";
+        private string connectionString = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
         int screenId;
         public SelectMasterParameterScreen()
         {

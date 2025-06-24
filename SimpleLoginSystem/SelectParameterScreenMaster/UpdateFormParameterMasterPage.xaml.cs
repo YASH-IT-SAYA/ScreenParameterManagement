@@ -1,6 +1,7 @@
 ﻿using ArkaPRP83.Core.Helper;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -19,7 +20,8 @@ namespace SimpleLoginSystem
 {
     public partial class UpdateFormParameterMasterPage : Window
     {
-        private static readonly string connectionString = "Data Source=DESKTOP-QI77AJ8\\SQLEXPRESS;Initial Catalog=ArkaPRP83_UserAudit;User ID=sa;Password=Test#123";
+        //private static readonly string connectionString = "Data Source=DESKTOP-QI77AJ8\\SQLEXPRESS;Initial Catalog=ArkaPRP83_UserAudit;User ID=sa;Password=Test#123";
+        private string connectionString = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
         private int currentId;
         public bool IsUpdated { get; private set; } = false;
         public UpdateFormParameterMasterPage(int id, string parametername, bool isActive, bool isDeleted)
