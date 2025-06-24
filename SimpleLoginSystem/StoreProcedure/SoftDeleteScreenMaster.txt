@@ -1,0 +1,23 @@
+﻿USE [ArkaPRP83_UserAudit]
+GO
+/****** Object:  StoredProcedure [dbo].[SoftDeleteScreenMaster]    Script Date: 06-06-2025 17:59:19 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[SoftDeleteScreenMaster]
+    @ID INT,
+    @IsDeleted BIT,
+	@IsActive BIT
+AS
+BEGIN
+UPDATE ScreenMaster
+SET IsDeleted = @IsDeleted,IsActive = @IsActive
+WHERE ID = @ID;
+IF @IsDeleted = 1
+	BEGIN
+		UPDATE GroupScreenMapping
+		SET IsDeleted = 1,IsActive =0 
+	WHERE ScreenMasterId = @ID;
+	END;
+END;

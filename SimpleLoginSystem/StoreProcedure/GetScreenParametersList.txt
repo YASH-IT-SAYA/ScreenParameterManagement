@@ -1,0 +1,18 @@
+﻿USE [ArkaPRP83_UserAudit]
+GO
+/****** Object:  StoredProcedure [dbo].[GetScreenParametersList]    Script Date: 06-06-2025 17:59:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[GetScreenParametersList]
+   @ScreenMasterId INT
+AS
+BEGIN
+   SELECT ID AS ParameterID,
+          Name AS ParameterName,
+          IsActive,
+          IsDeleted
+   FROM ScreenParameterMaster
+   WHERE ScreenMasterId = @ScreenMasterId 
+END

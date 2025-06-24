@@ -1,0 +1,42 @@
+﻿USE [ArkaPRP83_UserAudit]
+GO
+/****** Object:  StoredProcedure [dbo].[AddScreenMaster]    Script Date: 06-06-2025 17:58:00 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[AddScreenMaster]
+    @Name NVARCHAR(255),
+    @IsActive BIT,
+    @IsDeleted BIT
+AS
+BEGIN
+    DECLARE @NewScreenMasterId INT;
+    
+    INSERT INTO ScreenMaster (Name, IsActive, IsDeleted)
+    VALUES (@Name, @IsActive, @IsDeleted);
+
+    SET @NewScreenMasterId = SCOPE_IDENTITY();  
+
+    
+    INSERT INTO GroupScreenMapping (
+        ScreenMasterId,
+        GroupId,
+        IsSelected,
+        CreatedBy,
+        IsActive,
+        IsDeleted,
+        CreatedOn
+    )
+    SELECT
+        @NewScreenMasterId,
+        GD.Id,
+        0,              
+        1,           
+        1,             
+        0,              
+        GETDATE()       
+    FROM GroupDetail GD
+    WHERE GD.IsDeleted = 0;
+END;

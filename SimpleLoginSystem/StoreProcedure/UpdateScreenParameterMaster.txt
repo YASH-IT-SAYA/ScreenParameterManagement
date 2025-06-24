@@ -1,0 +1,26 @@
+﻿USE [ArkaPRP83_UserAudit]
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateScreenParameterMaster]    Script Date: 06-06-2025 18:00:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[UpdateScreenParameterMaster]
+    @ID INT,
+    @ParameterName NVARCHAR(255),
+    @IsActive BIT,
+    @IsDeleted BIT
+AS
+BEGIN
+    UPDATE ScreenParameterMaster
+    SET Name = @ParameterName, 
+        IsActive = @IsActive, 
+        IsDeleted = @IsDeleted
+    WHERE ID = @ID;
+	IF @IsDeleted = 0
+	BEGIN
+	 UPDATE GroupScreenParameterMapping
+        SET IsDeleted = 0,IsActive =1
+        WHERE ScreenParameterMasterId = @ID;
+	END;
+END;

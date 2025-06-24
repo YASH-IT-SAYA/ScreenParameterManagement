@@ -1,0 +1,12 @@
+﻿USE [ArkaPRP83_UserAudit]
+GO
+/****** Object:  StoredProcedure [dbo].[GetScreenMaster]    Script Date: 06-06-2025 17:58:49 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[GetScreenMaster]
+as
+begin
+SELECT ID, Name, IsActive, IsDeleted FROM ScreenMaster
+end
